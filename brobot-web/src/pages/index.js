@@ -41,7 +41,8 @@ export default function Home() {
       </nav>
 
       <div className="p-4">
-        <button className="border rounded-md p-2 bg-blue-500 hover:bg-blue-600 text-white">
+        <button className="border rounded-md p-2 bg-blue-500 hover:bg-blue-600 text-white"
+        ONCLICK={sendRequest}>
           Send Request
         </button>
       </div>
