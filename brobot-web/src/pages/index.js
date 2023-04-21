@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 export default function Home() {
   const SYSTEM_MESSAGE="You are Brobot an extremely sarcastic but helpful AI built with state of the art large language models"
@@ -61,14 +62,14 @@ setUserMessage("");
       </nav>
 
       {/*Message History*/} 
-      <div className="flex-1">
-          <div className="w-full max-w-screen-md mx-auto" >
+      <div className="flex-1 overflow-y-scroll ">
+          <div className="w-full max-w-screen-md mx-auto px-4" >
             {messages.filter(message => message.role!=="system").map((message,idx) => (
-            <div key={idx} className="mt-3">
+            <div key={idx} className="my-3">
               <div className="font-bold">
                 {message.role === "user" ? "You" : "Brobot"}
               </div>
-              <div className="text-lg">{message.content}</div>
+              <div className="text-lg prose"><ReactMarkdown>{message.content}</ReactMarkdown></div>
             </div>
             ))}
           </div>
