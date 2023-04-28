@@ -7,7 +7,7 @@ import Navbar from "../components/Navbar";
 
 export default function Home() {
   const SYSTEM_MESSAGE="You are Brobot an extremely sarcastic but helpful AI built with state of the art large language models"
-   const [apiKey, setApiKey] = useState("");
+  // const [apiKey, setApiKey] = useState("");
   const [messages, setMessages] = useState([
             {"role": "system", "content": SYSTEM_MESSAGE},
           ])
@@ -33,7 +33,7 @@ export default function Home() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
+         // Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
           model: "gpt-3.5-turbo",
