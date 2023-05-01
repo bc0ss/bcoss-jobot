@@ -8,6 +8,7 @@ import { useUser } from "@supabase/auth-helpers-react";
 import toast, { Toaster } from "react-hot-toast";
 import { streamOpenAIResponse } from "@/utils/openai";
 
+
 export default function Home() {
   const user = useUser();
   const SYSTEM_MESSAGE="You are Brobot an extremely sarcastic but helpful AI built with state of the art large language models";
@@ -46,6 +47,7 @@ export default function Home() {
     setMessages(updatedMessages);
     setUserMessage("");
 
+
     try {
       const response = await fetch(API_URL, {
         method: "POST",
@@ -58,7 +60,6 @@ export default function Home() {
           stream: true,
         }),
       });
-
       if (response.status !== 200) {
         throw new Error(
           `OpenAI API returned an error. Please ensure you've provided the right API key. Check the "Console" or "Network" of your browser's developer tools for details.`
